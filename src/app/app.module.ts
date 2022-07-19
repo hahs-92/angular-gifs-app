@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 
 //modulos
 import { SharedModule } from './shared/shared.module';
+import { GifsModule } from './gifs/gifs.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     //agregamos modulo compartido
     SharedModule,
+    GifsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
