@@ -2,6 +2,12 @@
   <h3 class="text-light">Gifs App</h3>
   <hr class="text-white" />
   <section class="list-group list-reset">
-    <a class="list-group-item list-group-item-action" href="#">Dashboard</a>
+    <a
+      class="list-group-item list-group-item-action"
+      href="#"
+      *ngFor="let query of historial"
+    >
+      {{ query | titlecase }}
+    </a>
   </section>
 </aside>
