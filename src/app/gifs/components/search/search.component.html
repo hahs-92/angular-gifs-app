@@ -1,2 +1,12 @@
 <h5>Buscar:</h5>
-<input type="text" class="form-control" placeholder="Buscar gifs..." />
+<input
+  type="text"
+  class="form-control"
+  placeholder="Buscar gifs..."
+  (keyup.enter)="search()"
+  #txtSearch
+/>
+
+<!-- ya no usamos asi por obtenemos el valor directamente en el
+.ts por referencia (#txtSearch) -->
+<!-- (keyup.enter)="search(txtSearch.value)" -->
