@@ -6,6 +6,7 @@
       class="list-group-item list-group-item-action"
       href="#"
       *ngFor="let query of historial"
+      (click)="search(query)"
     >
       {{ query | titlecase }}
     </a>

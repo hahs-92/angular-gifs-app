@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 //interfaces
 import { Gif, SearchGifsResponse } from '../interfaces/gifs.interface';
 
@@ -8,6 +8,7 @@ import { Gif, SearchGifsResponse } from '../interfaces/gifs.interface';
 })
 export class GifsService {
   private API_KEY = 'S6QgMDdocDTXU6mnUV8pOGDdi4rnZ53w';
+  private BASE_URL = 'https://api.giphy.com/v1/gifs';
   private _historial: string[] = [];
 
   get historial() {
@@ -25,6 +26,8 @@ export class GifsService {
 
     //tambien se puede hacer asi
     this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
+
+    this.results = JSON.parse(localStorage.getItem('results')!) || [];
   }
 
   searchGifs(query: string) {
@@ -35,15 +38,21 @@ export class GifsService {
       //restringir el numero de valores a 10
       this._historial = this._historial.splice(0, 10);
 
-      //guardar en local storage
+      //guardar historial en local storage
       localStorage.setItem('historial', JSON.stringify(this._historial));
     }
 
+    const params = new HttpParams()
+      .set('api_key', this.API_KEY)
+      .set('limit', '10')
+      .set('q', query);
+
     this.http
-      .get<SearchGifsResponse>(
-        `https://api.giphy.com/v1/gifs/search?api_key=${this.API_KEY}&q=${query}&limit=10`
-      )
-      .subscribe((resp) => (this.results = resp.data));
+      .get<SearchGifsResponse>(`${this.BASE_URL}/search`, { params: params })
+      .subscribe((resp) => {
+        this.results = resp.data;
+        localStorage.setItem('results', JSON.stringify(resp.data));
+      });
   }
 }
 
