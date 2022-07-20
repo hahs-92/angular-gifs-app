@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 //modulos
@@ -11,6 +11,7 @@ import { GifsModule } from './gifs/gifs.module';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     //agregamos modulo compartido
     SharedModule,
     GifsModule,

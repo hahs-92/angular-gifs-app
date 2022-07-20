@@ -1,6 +1,16 @@
-<article class="col">
-  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor veritatis,
-  dolore dolorum vero soluta blanditiis illo. Nisi voluptate repellat impedit
-  quas reprehenderit neque eos, qui omnis illo, possimus eveniet enim!
-  Necessitatibus delectus, in,
-</article>
+<div class="row">
+  <section *ngFor="let gif of results" class="col-md-4 col-sm-6">
+    <article class="card">
+      <img
+        class="card-img-top"
+        [src]="gif.images.downsized_medium.url"
+        [alt]="gif.title"
+      />
+      <section class="card-body">
+        <p class="card-text">
+          {{ gif.title }}
+        </p>
+      </section>
+    </article>
+  </section>
+</div>
