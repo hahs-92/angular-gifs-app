@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { GifsService } from 'src/app/gifs/services/gifs.service';
 @Component({
   selector: 'app-sidebar',
+  host: { class: 'sidebar' },
   templateUrl: './sidebar.component.html',
 })
 export class SidebarComponent {

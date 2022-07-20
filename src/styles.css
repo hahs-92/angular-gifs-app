@@ -9,3 +9,11 @@ body {
   min-height: 100vh;
   min-width: 180px;
 }
+
+.sidebar {
+  flex: 1;
+}
+
+.gifsPage {
+  flex: 4;
+}

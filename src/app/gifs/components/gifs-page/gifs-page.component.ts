@@ -2,15 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-gifs-page',
+  host: { class: 'gifsPage' },
   templateUrl: './gifs-page.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class GifsPageComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
